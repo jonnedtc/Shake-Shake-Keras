@@ -19,3 +19,12 @@ keras.models.save_model(model, 'filename.h5')
 # load model
 model = keras.models.load_model('filename.h5', custom_objects={'ShakeShake': ShakeShake})
 ```
+
+### CIFAR-10
+
+Quick test comparing this model with a similar ResNet-34 on the CIFAR-10 dataset. Both networks were trained with the Adam optimizer and cross-entropy loss for 200 epochs in batches of 128, using a learning rate of 1e-3 (decreased tenfold at epoch 120 and 160) and minor augmentation (translation and horizontal flipping).
+
+
+![results](https://raw.githubusercontent.com/jonnedtc/Shake-Shake-Keras/master/images/result.png)
+
+The Shake-Shake regularization achieved 93.44% accuracy on the CIFAR-10 test set versus 89.13% accuracy from the regular ResNet-34. However the improvement comes at the cost of almost double the model size and training time.
